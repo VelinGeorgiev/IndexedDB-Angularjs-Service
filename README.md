@@ -1,6 +1,6 @@
 # IndexedDB-Angularjs-Service
 This is a simple IndexedDB angularjs service that I have created for one of my projects for use in offline apps development. 
-Hope than may be a shortcut to someone in developing Angularjs-IndexedDB apps.
+Hope that may be a shortcut to someone developing Angularjs IndexedDB apps.
 
 I simply did not find any suitable factory for indexedDB and decided to create a simple service to do the job.
 
