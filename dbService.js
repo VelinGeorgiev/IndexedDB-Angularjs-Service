@@ -68,6 +68,38 @@
 
                 return deferred.promise;
             },
+            addall: function(storeName, entity) {
+                var deferred = $q.defer();
+
+                var add = function(db) {
+
+                    var tx = db.transaction(storeName, "readwrite");
+                    var store = tx.objectStore(storeName);
+										var count=0;
+                    //Insert several objects: [{obj},{obj},{obj}]
+										for(var i= 0; i< entity.length; i++){
+                    	store.add(entity[i]);
+											count++;
+										}
+                    tx.oncomplete = function(e) {
+                        // All requests have succeeded and the transaction has committed.
+                        deferred.resolve(count);
+                    };
+
+                    tx.onerror = function(ex) {
+                        deferred.reject(ex);
+                    };
+                    tx.onabort = function(ex) {
+                        deferred.reject(ex);
+                    };
+
+                    //db.close();
+                }
+
+                this.init().then(add);
+
+                return deferred.promise;
+            },
             put: function(storeName, entity) {
                 var deferred = $q.defer();
 
@@ -313,5 +345,3 @@
         };
     }
 ]);
-
-
