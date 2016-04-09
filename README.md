@@ -1,5 +1,5 @@
- IndexedDB-Angularjs-Service
- ==========================
+IndexedDB-Angularjs-Service
+=================
 
 ![build status](https://img.shields.io/pypi/status/Django.svg)
 
